@@ -1,0 +1,47 @@
+﻿@model IEnumerable<okul_yonetim.Models.Yonetici>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Yönetici Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Yönetici", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.YoneticiAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YoneticiSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YoneticiRol)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.YoneticiAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YoneticiSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YoneticiRol)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.YoneticiId }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.YoneticiId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.YoneticiId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

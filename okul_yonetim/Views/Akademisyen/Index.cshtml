@@ -1,0 +1,55 @@
+﻿@model IEnumerable<okul_yonetim.Models.Akademisyen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Akademisyen Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Akademisyen", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AkdAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AkdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AkdBolum)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AkdAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AkdSoyad)
+        </td>
+        <td>
+            @if (item.AkdBolum == 1)
+            {
+                <text>Bilgisayar Programcılığı</text>
+            }
+            else if (item.AkdBolum == 2)
+            {
+                <text>İnşaat</text>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.AkdBolum)
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.AkdId }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.AkdId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.AkdId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

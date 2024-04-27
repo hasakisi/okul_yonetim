@@ -1,0 +1,47 @@
+﻿@model okul_yonetim.Models.Akademisyen
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Akademisyen Silme</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AkdAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkdAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AkdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AkdBolum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkdBolum)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

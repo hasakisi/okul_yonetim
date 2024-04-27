@@ -1,0 +1,39 @@
+﻿@model okul_yonetim.Models.idare
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Silme İşlemi</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdariBirimAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdariBirimAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdariAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdariAd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

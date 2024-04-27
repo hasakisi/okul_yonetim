@@ -1,0 +1,39 @@
+﻿@model IEnumerable<okul_yonetim.Models.idare>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>İdare Personel Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni İdare", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdariBirimAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdariAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdariBirimAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdariAd)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IdariId }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.IdariId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Silme", "Delete", new { id=item.IdariId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

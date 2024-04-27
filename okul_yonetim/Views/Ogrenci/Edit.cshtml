@@ -1,0 +1,75 @@
+﻿@model okul_yonetim.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Düzenle</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OgrId)
+
+    <div class="form-group">
+        <label for="OgrAd">Öğrenci İsim</label>
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OgrAd, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OgrAd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="OgrSoyd">Öğrenci Soyisim</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OgrSoyad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OgrSoyad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="OgrBolum">Öğrenci Bölümü</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OgrBolum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OgrBolum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="OgrNo">Öğrenci Numarası</label>
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OgrNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OgrNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="OgrKredi">Öğrenci Not Ortalaması</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OgrKredi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OgrKredi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group mt-2">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
